@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="javascript:void(0)">Bus Booking</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <form class="d-flex">
+  @if (userloggedins) {
+    <a (click)="logout()" class="p-3">Logout</a>
+    <a class="p-3">Hi {{ username | uppercase }} Welcome back</a>
+  }
+  @else {
+    <a routerLink="/login" class="p-3">Login</a>
+  }
+</form>
+    </div>
+  </div>
+</nav>
+
+
+<router-outlet />

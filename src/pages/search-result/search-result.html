@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  @if (searchbuses.length > 0) {
+    @for (bus of searchbuses; track $index) {
+       <div class="service-card">
+    <div class="service-header">
+      <div>
+        <img src="https://www.shutterstock.com/image-vector/logo-bus-icon-school-vector-600nw-2381986327.jpg" alt="Assured Logo">
+      </div>
+      <div>
+        <h5>{{ bus.busName }}</h5>
+        <div class="sub-title">{{ bus.vendorName }} - {{ bus.busVehicleNo }}</div>
+      </div>
+    </div>
+
+    <div class="travel-time">
+      <div class="travel-info">
+        <div>
+          <span class="text-muted">Departure</span>
+          <div class="font-weight-bold">{{ bus.departureTime |date}}</div>
+           <div class="font-weight-bold">{{ bus.departureTime |date:'hh:mm a'}}</div>
+          <div class="text-muted">{{ bus.fromLocationName }}</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="chip">
+        <span>13h.30m</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="travel-info">
+        <div>
+          <span class="text-muted">Arrival</span>
+           <div class="font-weight-bold">{{bus.arrivalTime | date}}</div>
+          <div class="font-weight-bold">{{bus.arrivalTime | date:'hh:mm a'}}</div>
+          <div class="text-muted">{{ bus.toLocationName }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chip chip-primary">
+      {{ bus.availableSeats }} Seats Left
+    </div>
+
+    <div class="text-center price-tag">₹{{ bus.price }}</div>
+
+    <button class="btn-book-now" [disabled]="bus.availableSeats === 0" [routerLink]="['/bookticket', bus.scheduleId]">Select seats</button>
+  </div>
+    }
+    
+  }
+  @else{
+    <h6>No Buses</h6>
+  }
+
+ 
+</div>
+
+<!-- No buses found message -->
+<ng-template #noBuses>
+  <div class="text-center">
+    <p>No buses available for your selected route and date.</p>
+  </div>
+</ng-template>

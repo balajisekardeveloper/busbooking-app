@@ -1,0 +1,127 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-4 mx-auto mb-4"
+                    style="max-width: 400px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 15px;">
+                    @for (ticket of booktickets; track $index) {
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="bus-name text-primary fw-bold fs-4">
+                            {{ticket.busName | titlecase}}
+                        </div>
+                        <span class="badge bg-primary rounded-pill">
+                            {{ ticket.price |currency:'INR'}}
+                        </span>
+                    </div>
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Bus No:</strong> <span>{{ ticket.busVehicleNo }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Departure:</strong> <span>{{ticket.departureTime |date:'hh:mm a'}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Arrival:</strong> <span>{{ticket.arrivalTime | date:'hh:mm a'}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Total Seats:</strong> <span>{{ ticket.totalSeats }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Schedule Date:</strong> <span>{{ticket.scheduleDate | date:'yyyy-MM-dd' }}</span>
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-primary w-100">
+                        Show Seats
+                    </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+             <div class="row">
+             @for (seats of seatCount; track $index) {
+            
+                <div class="col-md-2">      
+                             <div class="col-md-4 text-center">
+                        <button class="seat" (click)="onSelect(seats)" [class.locked]="isSeatSelected(seats)"
+                            [disabled]="isSeatSelected(seats)">Seat {{seats}}</button>
+                            </div>  
+    
+                </div>
+           
+                  } 
+            </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card mx-auto mt-4" style="max-width: 400px;">
+                    <div class="card-header text-center">
+                        <h4>Bus Booking</h4>
+                        <div class="mb-3 p-3 bg-light rounded">
+                            <p><strong>Selected Seats:</strong> </p>
+                            @if (SelectedSeats.length == 0) {
+                            <span>No seat selected</span>
+                            }
+                            @else {
+                            @for (items of SelectedSeats; track $index) {
+                            <span class="seat1">{{items.seatNo}}</span>
+
+                            }
+                            }
+
+                            <p class="p-3"><strong>Fare per seat:</strong>0 </p>
+                            <p><strong>Total Amount:</strong>0</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @for (item of SelectedSeats; track $index) {
+                        <form [formGroup]="passengerForm">
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your name"
+                                    name="name" formControlName="passengerName">
+                            </div>
+
+                            <!-- Age Input -->
+                            <div class="mb-3">
+                                <label for="age" class="form-label">Age</label>
+                                <input type="number" id="age" class="form-control" placeholder="Enter your age"
+                                    name="age" formControlName ="age">
+                            </div>
+
+                            <!-- Gender Radio Buttons -->
+                            <div class="mb-3">
+                                <label class="form-label">Gender</label>
+                                <div>
+                                    <input type="radio" id="male" name="gender" value="Male" formControlName="gender">
+                                    <label for="male">Male</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="female" name="gender" value="Female" formControlName="gender">
+                                    <label for="female">Female</label>
+                                </div>
+                             
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary w-100" (click)="onBooking()">
+                                Proceed to pay
+                            </button>
+
+                        </form>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

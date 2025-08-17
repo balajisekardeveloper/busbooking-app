@@ -1,0 +1,70 @@
+ .card {
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+    }
+    .bus-name {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0d6efd;
+    }
+    .badge-custom {
+      background-color: #0d6efd;
+      color: white;
+      font-weight: 500;
+    }
+    .icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      color: #0d6efd;
+    }
+
+       .seat {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .selected {
+            background-color: #28a745;
+            color: white;
+        }
+        .booked {
+            background-color: #dc3545;
+            color: white;
+            cursor: not-allowed;
+        }
+        .seat-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 300px;
+        }
+        .row-title {
+            text-align: center;
+            font-weight: bold;
+           
+        }
+        .container {
+            margin-top: 50px;
+        }
+         .seat1 {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: #fa0a0a;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .locked {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

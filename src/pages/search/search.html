@@ -1,0 +1,39 @@
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh; background-color: cornflowerblue;" >
+  <div class="col-lg-8">
+    <div class="booking-card">
+      <h2 class="text-center heading">Search Bus Tickets</h2>
+      <form [formGroup]="searchfrom">
+        <div class="row g-4 align-items-end">
+          <div class="col-md-6">
+            <label for="from" class="form-label">From</label>
+            <select id="location" class="form-select" formControlName="fromloc">
+                 <option value="" disabled selected>Enter From location</option>
+                <option *ngFor="let item of locationlist" [value]="item.locationId">
+                {{ item.locationName }}
+                </option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label for="to" class="form-label">To</label>
+             <select id="location"class="form-select" formControlName="toloc">
+                     <option value="" disabled selected>Enter To location</option>
+                <option *ngFor="let item of locationlist" [value]="item.locationId">
+                {{ item.locationName }}
+                </option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <label for="date" class="form-label">Journey Date</label>
+            <input type="date" class="form-control" id="date" formControlName="date">
+          </div>
+
+          <div class="col-md-1 d-grid">
+            <button type="submit" class="btn btn-primary" (click)="searchbus()">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

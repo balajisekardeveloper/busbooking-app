@@ -1,0 +1,102 @@
+ body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #ffffff, #f9f2ff);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .service-header img {
+            max-width: 120px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .service-header h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e3d49;
+        }
+
+        .service-header .sub-title {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+
+        .travel-time {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .travel-time .divider {
+            flex-grow: 1;
+            margin: 0 20px;
+            border-top: 2px solid #ccc;
+        }
+
+        .travel-time .chip {
+            background-color: #f2f4f7;
+            color: #6c757d;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .travel-info div {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .price-tag {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #28a745;
+            margin: 20px 0;
+        }
+
+        .chip-primary {
+            background: linear-gradient(to right, #f9f2ff, #ffffff);
+            color: #6e18b9;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .btn-book-now {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-book-now:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        .chip {
+            margin-top: 10px;
+        }
